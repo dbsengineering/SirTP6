@@ -6,3 +6,7 @@ pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
+
+pokeApp.controller('myCtrl', function($scope) {
+    $scope.namepoke = "Mewtwo";
+});

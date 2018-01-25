@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="fr">
     <meta charset="UTF-8">
     <title></title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/pokedex.css" />
 
 </head>
 <body ng-app="pokedex">
 
 	<div class="container">
-		<h1>Pokésir</h1>
+		<h1>Bienvenue sur Pokédex !</h1>
 
 		<!-- Search -->
-		<div></div>
+		<div>
+            <!-- Question 1 -->
+            <form class="form-group">
+                    <div class="form-group" ng-app="pokeApp" ng-controller="myCtrl">
+                        <label for="inputText">Pokémon</label>
+                        <input type="text" class="form-control" id="id" ng-model="namepoke" placeholder="Pokémon">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+              </form> 
+        </div>
 
 		<!-- Pokémon information -->
 		<div></div>

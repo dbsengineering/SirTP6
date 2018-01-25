@@ -1,2 +1,2 @@
-# teaching-jxs-tp5
-TP5 : AngularJS
+# teaching-jxs-tp6
+TP6 : AngularJS
