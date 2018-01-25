@@ -16,13 +16,15 @@
 		<!-- Search -->
 		<div>
             <!-- Question 1 -->
-            <form class="form-group">
+            <!-- <form class="form-group"> -->
                     <div class="form-group" ng-app="pokeApp" ng-controller="myCtrl">
                         <label for="inputText">Pokémon</label>
                         <input type="text" class="form-control" id="id" ng-model="namepoke" placeholder="Pokémon">
+                        <h1 style="color:white;">{{namepoke}}</h1>
                     </div>
-                    <button type="submit" class="btn btn-primary">Valider</button>
-              </form> 
+                    <!-- <button type="submit" class="btn btn-primary">Valider</button> -->
+              <!-- </form> -->
+              <label for="inputText" ng-model="namepoke"></label>
         </div>
 
 		<!-- Pokémon information -->
