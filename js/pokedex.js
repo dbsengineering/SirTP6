@@ -29,11 +29,11 @@ pokeApp.controller('myCtrl', function($scope, POKEAPI) {
         POKEAPI = POKEAPI;
         console.log(POKEAPI);
     }*/
-    
+    $scope.nomPokemon="Pokémon"
+    //Récupère nom
     $scope.changeId = function(id){
         if(id){
-            $scope.nomPokemon = $scope.names[id];
-            console.log( $scope.nomPokemon);
+            $scope.nomPokemon = $scope.names[id].name;
         }
     }
 
