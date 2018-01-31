@@ -61,17 +61,17 @@
             </div>
             <!-- Question 6 -->
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
-                <input type="text" class="form-control" id="filter" ng-model="nomPokemon"  placeholder="{{nomPokemon}}"  value="nomPokemon">
+                <input type="text" class="form-control" id="filter" ng-model="nomPokemon"  ng-change="changeName(nomPokemon)" placeholder="{{nomPokemon}}"  value="nomPokemon">
             </div>
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
                 <!-- Question 5 -->
-                <select class="form-control" ng-model="names.name">
+                <select class="form-control" ng-model="nomPokemon">
                     <option id="name"  ng-repeat="name in names track by $index">{{name.name}}</option>
                 </select>
             </div>
             <!-- Question 8 -->
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
-                <button type="button" class="btn btn-primary" ng-click="check(names.id)">Go !</button>
+                <button type="button" class="btn btn-primary" ng-click="liste(names.id)">Go !</button> <!-- check(names.id) -->
             </div>
             </br>
             <h1>
