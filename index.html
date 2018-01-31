@@ -57,16 +57,16 @@
 
             <!-- Question 1 -->
             <div class="col-xs-1">
-                <input type="text" class="form-control" ng-model="names.id" id="id" placeholder="id" value="{{names.id}}">
+                <input type="text" class="form-control" ng-model="names.id" id="id" placeholder="id" ng-change="changeId(names.id)">
             </div>
             <!-- Question 6 -->
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
-                <input type="text" class="form-control" id="filter" ng-model="names.name" placeholder="Pokémon"  value="{{names[id].name}}">
+                <input type="text" class="form-control" id="filter" ng-model="names.name"  placeholder="Pokémon"  value="nomPokemon[1]">
             </div>
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
                 <!-- Question 5 -->
                 <select class="form-control" ng-model="names.name">
-                    <option id="name" ng-repeat="name in names track by $index">{{name.name}}</option>
+                    <option id="name"  ng-repeat="name in names track by $index">{{name.name}}</option>
                 </select>
             </div>
             <!-- Question 8 -->
