@@ -14,6 +14,7 @@ pokeApp.factory("resources", function(POKEAPI){
         listePoke:POKEAPI+'/api/v1/pokedex',
         resPok:'api/v1/pokemon/',
         linkPok:POKEAPI+'/api/v2/pokemon-form/',
+        description:POKEAPI+'/api/v1/description/'
     }
 });
 
@@ -43,18 +44,30 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
         vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
     });
 
-    
+    $scope.description = "";
     //Question 8
     $scope.check = function (id) {
+        var idPok = id.match(/\d+/)[0]; //Récupère nombre dans chaine de caractères
+        console.log(resources.linkPok + " " +idPok);
         var lePokemon = this;
-        $http.get(resources.linkPok+id).success(function (lePokemon){
+        $http.get(resources.linkPok+idPok).success(function (lePokemon){
             lePokemon.listeCompetence = lePokemon;
             
-            //console.log(lePokemon.listeCompetence.sprites.front_default);
+            //Affecte image
             $scope.image = [{
                 src: lePokemon.listeCompetence.sprites.front_default,
-              }];
+            }];
+
+
+
     
+        }).error(function(error){
+            vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
+        });
+        $http.get(resources.description+idPok).success(function (lePokemon){
+            lePokemon.listeCompetence = lePokemon;
+            //Description
+            $scope.description=lePokemon.listeCompetence;
         }).error(function(error){
             vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
         });
@@ -71,6 +84,12 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
     $scope.getId = function(name){
         return $scope.names[name].id;
     }
+});
+
+pokeApp.controller('myCtrl2',function($scope, $http, POKEAPI, resources) {
+    $http.get(resources.listePoke).success(function (listePokemon){
+
+    });
 });
 
 
