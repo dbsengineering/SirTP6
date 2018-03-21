@@ -9,3 +9,7 @@ body {
     background-size: cover;
 }
 
+.outer-div{
+    padding: 30px;
+}
+

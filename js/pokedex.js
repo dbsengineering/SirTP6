@@ -11,10 +11,6 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 //Factory : liens API
 pokeApp.factory("resources", function(POKEAPI){
     return{
-        /*listePoke:POKEAPI+'/api/v1/pokedex',
-        resPok:'api/v1/pokemon/',
-        linkPok:POKEAPI+'/api/v2/pokemon-form/',
-        description:POKEAPI+'/api/v1/description/'*/
         listePoke:POKEAPI+'/api/v2/pokemon/?limit=1000',
         resPok:POKEAPI+'/api/v2/pokemon/',
         linkPok:POKEAPI+'/api/v2/pokemon-form/',
@@ -22,7 +18,6 @@ pokeApp.factory("resources", function(POKEAPI){
     }
 });
 
-var image="";
 var id;
 
 
@@ -48,14 +43,6 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
             $scope.names.push({id:idPok,name:value.name});
             this.id = idPok;
         });
-        //V1
-        /*angular.forEach(vm.listePokemon.Objects[0].pokemon, function(value, key){
-            //var array = value.resource_uri.split(resources.resPok);
-            var idPok = value.resource_uri.substring(15);
-            idPok = idPok.substring(-10000, idPok.length-1);
-            $scope.names.push({id:idPok,name:value.name});
-            this.id = idPok;
-        });*/
 
     }).error(function(error){
         vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
@@ -78,8 +65,6 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
             vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
         });
 
-
-
         $http.get(resources.description+idPok).success(function (lePokemon){
             lePokemon.listeCompetence = lePokemon;
             //Description
@@ -88,14 +73,14 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
             vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
         });
 
+        //Compétences du pokémon
         $http.get(resources.resPok+idPok).success(function (lePokemon){
             lePokemon.listeCompetence = lePokemon;
             $scope.pms = [];
             angular.forEach(lePokemon.listeCompetence.moves, function(value, key) {
-                //console.log(value.move);
+
                 $scope.pms.push(value.move);
             });
-
 
         }).error(function(error){
             vm.statut = 'Impossible de récupérer la liste des pokémons : ' + error.Message;
@@ -110,13 +95,11 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
         }
     }
 
+    //Id du pokémon
     $scope.getId = function(name){
         console.log($scope.names[name].id);
         return $scope.names[name].id;
     }
-
-
-
 });
 
 
