@@ -9,6 +9,10 @@ body {
     background-size: cover;
 }
 
+.divForm{
+    background-color: rgba(256,256,256,0.95);
+}
+
 .outer-div{
     padding: 30px;
 }

@@ -74,8 +74,15 @@ pokeApp.controller('myCtrl',function($scope, $http, POKEAPI, resources) {
         });
 
         //Compétences du pokémon
+
+
         $http.get(resources.resPok+idPok).success(function (lePokemon){
             lePokemon.listeCompetence = lePokemon;
+            console.log(lePokemon.listeCompetence);
+
+            $scope.taille =  lePokemon.listeCompetence.height;
+            $scope.poids =  lePokemon.listeCompetence.weight;
+            $scope.xp = lePokemon.listeCompetence.base_experience;
             $scope.pms = [];
             angular.forEach(lePokemon.listeCompetence.moves, function(value, key) {
 
