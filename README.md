@@ -9,7 +9,7 @@ Project in Distributed information system (SIR [Système d'information répartie
 This is an aproach of angularJS.
 
 
-<img src="https://user-images.githubusercontent.com/8668325/37735937-cb7545b8-2d4f-11e8-8f2b-1a2fc4bbee00.PNG" width="1313" height="386">
+<img src="https://user-images.githubusercontent.com/8668325/37756428-be0c0114-2da9-11e8-8ebe-1624fe6e1cf9.PNG" width="1118" height="713">
                                (Illustration : screen example)
 
 ## Authors
